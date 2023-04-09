@@ -7,27 +7,21 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Home from './components/Home/Home';
-import Main from './components/Layout/Main';
-import OrderReview from './components/OrderReview/OrderReview';
-const router = createBrowserRouter([
+const router =createBrowserRouter([
   {
-    path: "/",
-    element:<Main></Main>,
+    path:'/',
+    element:<App></App>,
     children:[
       {
         path:'/',
-        element:<Home></Home>,
-        loader:()=>fetch('tshirts.json')
-      },
-      {
-        path:'review',
-        element:<OrderReview></OrderReview>
+        element:<Home></Home>
       }
     ]
-  },
-]);
+    
+  }
+])
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <RouterProvider router={router} />
   </React.StrictMode>,
 )
